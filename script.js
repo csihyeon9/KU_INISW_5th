@@ -159,3 +159,26 @@ function base64ToBlob(base64, mime) {
     }
     return new Blob([ab], { type: mime });
 }
+
+async function uploadFile() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (file) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+            const response = await fetch('/.netlify/functions/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+            alert(result.message); // 성공 메시지 표시
+        } catch (error) {
+            console.error('파일 업로드 중 오류 발생:', error);
+        }
+    }
+}
+
