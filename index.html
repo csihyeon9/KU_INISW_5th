@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료 업로드 및 기록</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <!-- 로고 추가 -->
+        <div class="logo">
+            <img src="logo.png" alt="로고">
+        </div>
+        <h2>KU_INISW_5기</h2>
+        <a href="index.html">ppt/공용 업로드</a>
+        <a href="meeting.html">회의 기록</a>
+        <a href="team1.html">권수현's Page</a>
+        <a href="team2.html">조창희's Page</a>
+        <a href="team3.html">차시현's Page</a>
+        <a href="team4.html">하수진's Page</a>
+        <a href="thesis_link.html">논문 링크 모음</a>
+
+        
+        <!-- 모든 파일 및 글 다운로드 버튼 추가 -->
+        <button id="downloadAll" class="download-btn">모든 파일/글 다운로드</button>
+    </div>
+
+    <div class="content">
+        <h2>PPT / 공용 업로드</h2>
+        <!-- 파일 업로드 섹션 -->
+        <div class="upload-section">
+            <h2>파일 및 이미지 업로드</h2>
+            <input type="file" id="fileInput" accept=".txt,.pdf,.jpg,.png">
+            <button onclick="uploadFile('index')">업로드</button>
+            <div id="uploadedFiles"></div>
+        </div>
+
+        <!-- 글 작성 섹션 -->
+        <div class="text-section">
+            <h2>글 작성</h2>
+            <textarea id="textInput" rows="4" placeholder="글을 작성하세요..."></textarea>
+            <button onclick="saveText('index')">글 저장</button>
+        </div>
+
+        <!-- 저장된 글 표시 -->
+        <div class="file-list">
+            <h3>저장된 글 목록</h3>
+            <ul id="savedTexts">
+                <!-- 저장된 글 목록 표시 -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+</body>
+</html>
