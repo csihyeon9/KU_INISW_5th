@@ -116,7 +116,7 @@ window.onload = function () {
     displaySavedTexts(currentPage);
 };
 
-// JSZip 라이브러리 추가
+// 모든 페이지의 파일 및 글 데이터를 한 번에 ZIP 파일로 다운로드
 document.getElementById('downloadAll').addEventListener('click', downloadAllFilesAndTexts);
 
 function downloadAllFilesAndTexts() {
@@ -125,8 +125,8 @@ function downloadAllFilesAndTexts() {
     // 모든 페이지의 파일 및 글 데이터를 로컬 스토리지에서 가져옴
     let pages = ['index', 'team1', 'team2', 'team3', 'team4'];
     pages.forEach(page => {
-        let files = JSON.parse(localStorage.getItem(page + '_files') || '[]');
-        let texts = JSON.parse(localStorage.getItem(page + '_texts') || '[]');
+        let files = JSON.parse(localStorage.getItem(`${page}_files`) || '[]');
+        let texts = JSON.parse(localStorage.getItem(`${page}_texts`) || '[]');
 
         // 파일들을 ZIP에 추가
         files.forEach((file, index) => {
